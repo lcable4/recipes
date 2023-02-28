@@ -5,6 +5,7 @@ const Main = () => {
     return(
         <div id="main">
             <Navbar />
+            <h1>Recipes</h1>
         </div>
     )
 }
