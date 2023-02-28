@@ -6,7 +6,6 @@ const { postDetails } = require('./views/postDetails.js')
 const { find } = require('./recipeData');
 const { list } = require('./recipeData');
 
-// app.use(express.static("public"));
 app.use(morgan("dev"));
 
 app.get('/', async (req, res) => {
@@ -25,6 +24,7 @@ app.get('/posts/:id', (req, res) => {
 
 const PORT = 8080
 
+app.use(express.static("public"));
 app.listen(PORT, () => {
     console.log(`Express is listening on port ${PORT}`)
 });

@@ -1,4 +1,3 @@
-const { list } = require("../recipeData");
 
 const postList = async (posts) => {
     console.log("postList function called");
