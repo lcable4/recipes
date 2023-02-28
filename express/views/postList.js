@@ -2,7 +2,7 @@ const { list } = require("../recipeData");
 
 const postList = async (posts) => {
     console.log("postList function called");
-
+try {
     const html = `<!DOCTYPE html>
     <html>
     <head>
@@ -31,8 +31,12 @@ const postList = async (posts) => {
       </div>
     </body>
     </html>`;
-  
     return html;
+} catch (error) {
+    console.log(error);
+}
+   
+  
   };
   
   module.exports = { postList: postList };

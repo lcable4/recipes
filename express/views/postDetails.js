@@ -1,5 +1,5 @@
 const postDetails = (post) => {
-    
+    console.log("postDetail function called");
     try {
       if (!post.id) {
         // If the post wasn't found, just throw an error

@@ -1,24 +1,17 @@
 const express = require('express');
 const app = express();
 const morgan = require("morgan");
-const asianRecipeData = require("./recipeData")
-const timeAgo = require("node-time-ago");
-const { postList } = require("./views/postList");
-const { postDetails } = require('./views/postDetails')
+const { postList } = require("./views/postList.js");
+const { postDetails } = require('./views/postDetails.js')
 const { find } = require('./recipeData');
 const { list } = require('./recipeData');
 
-
-//   const html = postList(asianRecipeData);
-// //   const posts = list();
-// //   console.log(posts);
-//  console.log(html); // check the output in the console
-
+// app.use(express.static("public"));
 app.use(morgan("dev"));
-app.use(express.static("public"));
 
 app.get('/', async (req, res) => {
     const posts = await list();
+    console.log(posts)
     const html = await postList(posts); 
     res.send(html); 
 });
