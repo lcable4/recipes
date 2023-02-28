@@ -3,12 +3,16 @@ const app = express();
 const morgan = require("morgan");
 const { postList } = require("./views/postList.js");
 const { postDetails } = require('./views/postDetails.js')
+const {categories} = require('./views/categories.js')
+const {listCategories} = require('./views/categories.js')
 const { find } = require('./recipeData');
 const { list } = require('./recipeData');
 
 app.use(morgan("dev"));
 
-app.get('/', async (req, res) => {
+
+
+app.get('/posts', async (req, res) => {
     const posts = await list();
     console.log(posts)
     const html = await postList(posts); 
@@ -21,6 +25,12 @@ app.get('/posts/:id', (req, res) => {
     const html = postDetails(post); 
     res.send(html);
 })
+
+app.get('/', async (req, res) => {
+    const categoryListHtml = await categories();
+    
+    res.send(categoryListHtml);
+  });
 
 const PORT = 8080
 
